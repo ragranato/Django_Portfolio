@@ -6,7 +6,9 @@ def home(request):
     return render(request, "home.html")
 
 def contact(request):
-    return render(request, "contact.html")
+    projects = Project.objects.all()
+    tags = Tag.objects.all()
+    return render(request, "contact.html", {"projects":projects, "tags": tags})
 
 def project(request, id):
     return render(request, "project.html")
